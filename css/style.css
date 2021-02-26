@@ -6,6 +6,7 @@
   --title-text-color: #212121;
   --black-text-color: #000000;
   --accent-color: #2196f3;
+  --accent-hover-color: #188ce8;
   --header-line-color: #ececec;
   --social-link-color: #afb1b8;
 
@@ -13,6 +14,8 @@
 
   /* відступ */
   --project-gap: 30px;
+
+  --transition-type: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -125,7 +128,7 @@ img {
   padding-bottom: 31px;
   align-items: center;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-type);
 }
 
 .nav-item:not(:last-child) {
@@ -216,10 +219,14 @@ img {
 }
 
 .button {
-  display: block;
+  display: flex;
+  width: 200px;
+  height: 50px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px 32px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
 
   background-color: var(--accent-color);
   color: var(--white-color);
@@ -231,6 +238,12 @@ img {
   letter-spacing: 0.06em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+
+  transition: background-color var(--transition-type);
+}
+
+.button:hover {
+  background-color: var(--accent-hover-color);
 }
 
 /* advantages */
@@ -387,8 +400,8 @@ img {
 .personal {
   color: var(--social-link-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-type),
+    background-color var(--transition-type);
 }
 
 .personal:hover,
@@ -413,8 +426,7 @@ img {
   border: 1px solid var(--social-link-color);
   color: var(--social-link-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-type), border-color var(--transition-type);
 }
 
 .client:hover,
@@ -437,6 +449,7 @@ img {
 .footer-container {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
 }
 
 /* logo */
@@ -465,7 +478,7 @@ img {
 }
 
 .logo-address .link {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-type);
 }
 
 .footer-contact:first-child {
@@ -474,10 +487,9 @@ img {
 
 /* Присоединяйтесь */
 .connect {
-  margin-left: 85px;
 }
 
-.connect-title {
+.footer-title {
   margin-bottom: 20px;
 
   font-weight: bold;
@@ -492,12 +504,58 @@ img {
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--white-color);
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--transition-type);
 }
 
 .company:hover,
 .company:focus {
   background-color: var(--accent-color);
+}
+
+.subscribe-content {
+  display: flex;
+}
+
+.subscribe-field {
+  position: relative;
+  margin-right: 12px;
+  display: flex;
+
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-input {
+  padding: 15px 16px;
+  width: 358px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: transparent;
+
+  color: inherit;
+}
+
+.subscribe-input:hover ~ .subscribe-label,
+.subscribe-input:focus ~ .subscribe-label,
+.subscribe-input:not(:placeholder-shown) ~ .subscribe-label {
+  transform: translate(-75px, -50%);
+}
+
+.subscribe-label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: transform var(--transition-type);
+}
+
+.subscribe-icon {
+  margin-left: 10px;
 }
 
 /* ПОРТФОЛИО */
@@ -525,9 +583,8 @@ img {
   line-height: 1.62;
   letter-spacing: 0.03em;
 
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--transition-type),
+    background-color var(--transition-type), color var(--transition-type);
 }
 
 .kind-button:hover,
@@ -580,7 +637,7 @@ img {
   background-color: rgba(33, 150, 243, 0.9);
 
   transform: translateY(101%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-type);
 }
 
 .project:hover .overlay,
@@ -623,8 +680,7 @@ img {
 
   opacity: 1;
   visibility: visible;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--transition-type), visibility var(--transition-type);
 }
 
 .backdrop.is-hidden {
@@ -644,7 +700,6 @@ img {
   transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
-  /* height: 581px; */
   padding: 40px;
   border-radius: 4px;
 
@@ -652,7 +707,7 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-type);
 }
 
 .modal-close {
@@ -673,7 +728,7 @@ img {
   background: var(--white-color);
   color: var(--black-text-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-type);
 }
 
 .modal-close:hover,
@@ -685,7 +740,8 @@ img {
   fill: currentColor;
 }
 
-.form {
+.form-recall,
+.form-subscribe {
   margin: 0;
 }
 
@@ -701,7 +757,7 @@ img {
   color: var(--title-text-color);
 }
 
-.form-field {
+.recall-field {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -710,8 +766,7 @@ img {
   cursor: pointer;
 }
 
-.field-label {
-  /* display: block; */
+.recall-label {
   margin-bottom: 4px;
 
   font-size: 12px;
@@ -719,71 +774,61 @@ img {
   letter-spacing: 0.01em;
 }
 
-.field-input {
-  /* display: block; */
+.recall-input {
   margin: 0;
-
   padding: 11px 11px 11px 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 
   font-size: 14px;
   color: var(--title-text-color);
-  /* cursor: pointer; */
 
-  /* line-height: 16px; */
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--transition-type);
 }
 
-.form-icon {
+.recall-icon {
   position: absolute;
   bottom: 10px;
   left: 15px;
 
   fill: var(--title-text-color);
 
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill var(--transition-type);
+
+  pointer-events: none;
 }
 
-.form-icon:hover {
-  /* fill: var(--accent-color); */
-  /* border-color: var(--accent-color); */
-}
-
-/* .form-icon:hover {  
-  border-color: var(--accent-color);
-} */
-
-.field-input:hover,
-.field-input:focus {
+.recall-input:hover,
+.recall-input:focus {
   border-color: var(--accent-color);
   cursor: pointer;
 }
 
-.field-input:hover ~ .form-icon,
-.field-input:focus ~ .form-icon,
-.field-input:not(:placeholder-shown) ~ .form-icon {
+.recall-input:hover ~ .recall-icon,
+.recall-input:focus ~ .recall-icon,
+.recall-input:not(:placeholder-shown) ~ .recall-icon {
   fill: var(--accent-color);
 }
 
-.field-input:not(:placeholder-shown) {
+.recall-input:not(:placeholder-shown) {
   cursor: text;
+  border-color: var(--accent-color);
 }
 
-.form-field-textarea {
+.recall-textarea {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
 
 .textarea-input {
-  padding: 12px 16px;
+  padding: 11px 15px;
   resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   cursor: pointer;
 
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--transition-type);
 }
 
 .textarea-input:hover,
@@ -793,117 +838,46 @@ img {
 
 .textarea-input:not(:placeholder-shown) {
   cursor: text;
+  border-color: var(--accent-color);
 }
 
 .textarea-input::placeholder {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.form-field-checkbox {
-  display: block;
+.recall-checkbox {
+  display: flex;
+  align-items: center;
   margin-bottom: 30px;
   cursor: pointer;
 }
 
-.checkbox-input {
+.checkbox-label {
+  display: flex;
+  align-items: center;
+}
+.checkbox-label::before {
+  content: '';
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+
+  transition: border-color var(--transition-type),
+    background-color var(--transition-type);
+}
+
+.checkbox-input:checked + .checkbox-label::before {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+
+  background-image: url('../images/icons/icon-check.svg');
+  background-size: contain;
+  background-origin: border-box;
 }
 
 .contract {
   color: var(--accent-color);
-}
-/*  */
-/* .label {
-  position: relative;
-  display: block;
-  margin-bottom: 10px;
-} */
-
-/* .label-text {
-  display: block;
-  margin-bottom: 4px;
-
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-} */
-
-/* .label-field {
-  display: block;
-  width: 100%;
-  height: 40px;
-
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-
-  font-size: 16px;
-
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-} */
-
-/* .label-field:hover,
-.label-field:focus {
-  border-color: var(--accent-color);
-  cursor: pointer;
-} */
-
-/* .label-field:hover + .form-icon,
-.label-field:focus + .form-icon {
-  fill: var(--accent-color);
-} */
-
-/* .textarea {
-  display: block;
-  margin-bottom: 20px;
-} */
-
-/* .textarea-field {
-  padding: 12px 16px;
-  height: auto;
-
-  resize: none;
-
-  font-size: 14px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-}
-
-.textarea-field::placeholder {
-  color: rgba(117, 117, 117, 0.5);
-} */
-
-.submit {
-  /* display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 32px;
-
-  background-color: var(--accent-color);
-  color: var(--white-color);
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px; */
-
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 55px;
-
-  /* width: 200px; */
-  /* height: 50px; */
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-  color: var(--white-color);
-  background-color: var(--accent-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  margin-left: 2px;
 }

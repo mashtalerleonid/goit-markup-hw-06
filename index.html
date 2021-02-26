@@ -419,7 +419,7 @@
         </div>
 
         <div class="connect">
-          <p class="connect-title">Присоединяйтесь</p>
+          <p class="footer-title">Присоединяйтесь</p>
           <ul class="social-links list">
             <li class="social-item">
               <a class="social-link company link" href="#">
@@ -451,13 +451,31 @@
             </li>
           </ul>
         </div>
+
+        <div class="subscribe">
+          <form action="" class="form-subscribe">
+            <p class="footer-title">Подпишитесь на рассылку</p>
+            <div class="subscribe-content">
+              <label class="subscribe-field">
+                <input class="subscribe-input" type="text" placeholder=" " />
+                <span class="subscribe-label"> E-mail</span>
+              </label>
+              <button class="button subscribe-button" type="button">
+                Подписаться
+                <svg class="subscribe-icon" width="24" height="24">
+                  <use href="./images/icons/sprite.svg#icon-send"></use>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </footer>
 
     <!-- modals  -->
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <form class="form" action="">
+        <form class="form-recall" action="">
           <button class="modal-close" type="button" data-modal-close>
             <svg class="close-icon" width="11" height="11">
               <use href="./images/icons/sprite.svg#close"></use>
@@ -465,79 +483,71 @@
           </button>
           <p class="form-title">Оставьте свои данные, мы вам перезвоним</p>
 
-          <label class="form-field">
-            <span class="field-label">Имя</span>
+          <label class="recall-field">
+            <span class="recall-label">Имя</span>
             <input
-              class="field-input"
+              class="recall-input"
               type="text"
               name="name"
               placeholder=" "
               autocomplete="off"
             />
-            <svg class="form-icon" width="20" height="20">
+            <svg class="recall-icon" width="20" height="20">
               <use href="./images/icons/sprite.svg#form-person"></use>
             </svg>
           </label>
-          <label class="form-field">
-            <span class="field-label">Телефон</span>
+          <label class="recall-field">
+            <span class="recall-label">Телефон</span>
             <input
-              class="field-input"
+              class="recall-input"
               type="tel"
               name="phone"
               placeholder=" "
               autocomplete="off"
             />
-            <svg class="form-icon" width="20" height="20">
+            <svg class="recall-icon" width="20" height="20">
               <use href="./images/icons/sprite.svg#form-phone"></use>
             </svg>
           </label>
-          <label class="form-field">
-            <span class="field-label">Почта</span>
+          <label class="recall-field">
+            <span class="recall-label">Почта</span>
             <input
-              class="field-input"
+              class="recall-input"
               type="email"
               name="mail"
               placeholder=" "
               autocomplete="off"
             />
-            <svg class="form-icon" width="20" height="20">
+            <svg class="recall-icon" width="20" height="20">
               <use href="./images/icons/sprite.svg#form-mail"></use>
             </svg>
           </label>
 
-          <!-- <div class="form-field">
-            <label class="field-label" for="name">Имя</label>
-            <input class="field-input" type="text" name="name" id="name" />
-          </div> -->
-          <!-- <div class="form-field">
-            <label class="field-label" for="phone">Телефон</label>
-            <input class="field-input" type="tel" name="phone" id="phone" />
-          </div> -->
-          <!-- <div class="form-field">
-            <label class="field-label" for="mail">Почта</label>
-            <input class="field-input" type="email" name="mail" id="mail" />
-          </div> -->
-          <label class="form-field-textarea">
-            <span class="field-label">Комментарий</span>
+          <label class="recall-textarea">
+            <span class="recall-label">Комментарий</span>
             <textarea
               class="textarea-input"
-              name="coment"
+              name="comment"
               placeholder="Введите текст"
               rows="6"
             ></textarea>
           </label>
-          <label class="form-field-checkbox">
-            <input class="checkbox-input" type="checkbox" name="agree" />
-            <span class="checkbox-label"
-              >Соглашаюсь с рассылкой и принимаю
+
+          <label class="recall-checkbox">
+            <input
+              class="checkbox-input visually-hidden"
+              type="checkbox"
+              name="agree"
+            />
+            <!-- <div class="checkbox-icon"></div> -->
+
+            <span class="checkbox-label">
+              Соглашаюсь с рассылкой и принимаю
               <a class="contract" href="#">Условия договора</a>
             </span>
           </label>
-          <!-- <svg class="form-icon" width="20" height="20">
-              <use href="./images/icons/sprite.svg#form-person"></use>
-            </svg> -->
 
-          <button class="submit" type="submit">Отправить</button>
+          <button class="button" type="submit">Отправить</button>
         </form>
       </div>
     </div>
